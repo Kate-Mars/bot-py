@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import BotCommand, BotCommandScopeDefault
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
@@ -5,7 +6,8 @@ from aiogram.types import ParseMode
 from aiogram.types import KeyboardButton, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
 import logging
 
-BOT_TOKEN = '5886656199:AAEsX78loN6rLWpaz8halNQGMV0soUWnHNo'
+load_dotenv()
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 bot = Bot(token=BOT_TOKEN,
           parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot, storage=MemoryStorage())
